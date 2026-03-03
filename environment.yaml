@@ -186,6 +186,7 @@ dependencies:
   - zipp=3.8.0=py38h06a4308_0
   - zlib=1.2.12=h7f8727e_2
   - zstd=1.4.9=ha95c52a_0
+  - mdtraj<1.9.9
   - pip:
       - alphaspace2==0.1.2
       - astunparse==1.6.3
@@ -197,7 +198,7 @@ dependencies:
       - intel-openmp==2018.0.3
       - isodate==0.6.1
       - lightning-utilities==0.9.0
-      - mdtraj==1.9.9
+      # - mdtraj==1.9.9
       - meeko==0.1.dev3
       - mkl==2018.0.3
       - mmcif-pdbx==2.0.1
