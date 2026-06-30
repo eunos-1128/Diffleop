@@ -152,7 +152,7 @@ if __name__ == '__main__':
 
     if config.train.use_load:
         print('load')
-        ckpt = torch.load(config.train.ckpt, map_location=args.device)
+        ckpt = torch.load(config.train.ckpt, map_location=args.device, weights_only=False)
         model.load_state_dict(ckpt['model'])
         optimizer.load_state_dict(ckpt['optimizer'])
         scheduler.load_state_dict(ckpt['scheduler'])

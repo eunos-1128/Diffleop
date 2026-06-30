@@ -233,7 +233,7 @@ if __name__ == '__main__':
     # Load checkpoint
     assert config.model.checkpoint or args.ckpt_path
     ckpt_path = args.ckpt_path if args.ckpt_path is not None else config.model.checkpoint
-    ckpt = torch.load(ckpt_path, map_location=args.device)
+    ckpt = torch.load(ckpt_path, map_location=args.device, weights_only=False)
     if 'train_config' in config.model:
         logger.info(f"Load training config from: {config.model['train_config']}")
         ckpt['config'] = misc.load_config(config.model['train_config'])
@@ -318,7 +318,7 @@ if __name__ == '__main__':
 
     results_list = [[] for i in range(len(test_set))]
     if os.path.exists(os.path.join(log_dir, 'results.pt')):
-        results_list = torch.load(os.path.join(log_dir, 'results.pt'))
+        results_list = torch.load(os.path.join(log_dir, 'results.pt'), weights_only=False)
     sdf_dir = os.path.join(log_dir, 'sdf')
     os.makedirs(sdf_dir, exist_ok=True)
     print('[DEBUG] mkdir done')
