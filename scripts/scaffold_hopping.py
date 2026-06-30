@@ -143,7 +143,7 @@ if __name__ == '__main__':
     # Load checkpoint
     assert config.model.checkpoint or args.ckpt_path
     ckpt_path = args.ckpt_path if args.ckpt_path is not None else config.model.checkpoint
-    ckpt = torch.load(ckpt_path, map_location=args.device)
+    ckpt = torch.load(ckpt_path, map_location=args.device, weights_only=False)
     if 'train_config' in config.model:
         logger.info(f"Load training config from: {config.model['train_config']}")
         ckpt['config'] = misc.load_config(config.model['train_config'])

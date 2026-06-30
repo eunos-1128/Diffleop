@@ -35,7 +35,7 @@ def cal_affinity(ligand_fn, protein_fn):
     # self-dock model
     modelFile = "../saved_models/self_dock.pt"
 
-    model.load_state_dict(torch.load(modelFile, map_location=device))
+    model.load_state_dict(torch.load(modelFile, map_location=device, weights_only=False))
     _ = model.eval()
 
     pdb = protein_fn
